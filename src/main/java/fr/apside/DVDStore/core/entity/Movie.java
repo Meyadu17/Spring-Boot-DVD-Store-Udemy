@@ -1,4 +1,4 @@
-package fr.apside.tp.DVDStore.entity;
+package fr.apside.DVDStore.core.entity;
 
 public class Movie {
 

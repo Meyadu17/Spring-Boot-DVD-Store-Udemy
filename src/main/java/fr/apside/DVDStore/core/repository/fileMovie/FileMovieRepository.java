@@ -1,11 +1,14 @@
-package fr.apside.tp.DVDStore.repository.fileMovie;
+package fr.apside.DVDStore.core.repository.fileMovie;
 
-import fr.apside.tp.DVDStore.entity.Movie;
-import fr.apside.tp.DVDStore.repository.MovieRepositoryInterface;
+import fr.apside.DVDStore.core.entity.Movie;
+import fr.apside.DVDStore.core.repository.MovieRepositoryInterface;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +32,26 @@ public class FileMovieRepository implements MovieRepositoryInterface {
 			e.printStackTrace();
 		}
 		System.out.println("The movie "+movie.getTitle()+" has been added.");
+	}
+
+	@Override
+	public List<Movie> List() {
+		List<Movie> movies=new ArrayList<>();
+
+		try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+			for(String line; (line = br.readLine()) != null; ) {
+				final Movie movie=new Movie();
+				final String[] titreEtGenre = line.split("\\;");
+				movie.setTitle(titreEtGenre[0]);
+				movie.setGenre(titreEtGenre[1]);
+				movies.add(movie);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return movies;
 	}
 
 	// Ajout des getter et setter de file pour y faire appel dans applicationContext.xml

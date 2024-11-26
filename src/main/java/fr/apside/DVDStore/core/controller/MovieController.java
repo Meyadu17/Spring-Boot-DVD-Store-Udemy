@@ -1,8 +1,7 @@
-package fr.apside.tp.DVDStore.controller;
+package fr.apside.DVDStore.core.controller;
 
-import fr.apside.tp.DVDStore.entity.Movie;
-import fr.apside.tp.DVDStore.service.MovieServiceInterface;
-import org.springframework.beans.factory.annotation.Autowired;
+import fr.apside.DVDStore.core.entity.Movie;
+import fr.apside.DVDStore.core.service.MovieServiceInterface;
 import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package fr.apside.tp.DVDStore;
+package fr.apside.DVDStore.core;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
