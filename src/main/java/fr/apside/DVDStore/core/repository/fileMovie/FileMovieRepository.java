@@ -34,7 +34,7 @@ public class FileMovieRepository implements MovieRepositoryInterface {
 		catch (IOException e){
 			e.printStackTrace();
 		}
-		System.out.println("Le filme "+movie.getTitle()+" à été ajouté.");
+		System.out.println("Le film "+movie.getTitle()+" à été ajouté.");
 	}
 
 	@Override
