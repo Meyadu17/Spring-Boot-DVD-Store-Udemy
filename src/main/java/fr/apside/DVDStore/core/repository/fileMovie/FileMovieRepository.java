@@ -3,7 +3,6 @@ package fr.apside.DVDStore.core.repository.fileMovie;
 import fr.apside.DVDStore.core.entity.Movie;
 import fr.apside.DVDStore.core.repository.MovieRepositoryInterface;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Repository;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+//@Repository
 public class FileMovieRepository implements MovieRepositoryInterface {
 
 	@Value("${movies.file.location}")
@@ -90,13 +89,5 @@ public class FileMovieRepository implements MovieRepositoryInterface {
 		movie.setGenre("UNKNOWN");
 		movie.setDescription("UNKNOWN");
 		return movie;
-	}
-
-	public File getFile() {
-		return file;
-	}
-
-	public void setFile(File file) {
-		this.file = file;
 	}
 }
